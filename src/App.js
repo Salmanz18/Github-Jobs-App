@@ -1,9 +1,9 @@
 import React from 'react';
-import userFetchJobs from './userFetchJobs';
+import useFetchJobs from './useFetchJobs';
 import { Container } from 'react-bootstrap';
 
 function App() {
-  const { jobs, loading, error } = userFetchJobs();
+  const { jobs, loading, error } = useFetchJobs();
 
   return (
     <Container>
