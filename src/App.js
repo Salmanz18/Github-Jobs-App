@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import useFetchJobs from './useFetchJobs';
 import Job from './components/Job';
-import { Container } from 'react-bootstrap';
+import { Container, Spinner } from 'react-bootstrap';
 import { JobsPagination } from './components/JobsPagination';
 import { SearchForm } from './components/SearchForm';
 
@@ -24,7 +24,11 @@ function App() {
       <h1 className='mb-4'>Github Jobs</h1>
       <SearchForm params={params} onParamChange={handleParamChange} />
       <JobsPagination page={page} setPage={setPage} hasNextPage={true} />
-      {loading && <h1>Loading...</h1>}
+      {loading && (
+        <Spinner className='text-center' animation='border' role='status'>
+          <span className='sr-only'>Loading...</span>
+        </Spinner>
+      )}
       {error && <h1>Error. Try Refreshing!</h1>}
       {jobs.map((job) => {
         return <Job key={job.id} job={job} />;
