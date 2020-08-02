@@ -21,7 +21,7 @@ function App() {
 
   return (
     <Container className='my-4'>
-      <h1 className='mb-4'>Github Jobs</h1>
+      <h1 className='mb-4 text-center'>Github Jobs</h1>
       <SearchForm params={params} onParamChange={handleParamChange} />
       <JobsPagination page={page} setPage={setPage} hasNextPage={true} />
       {loading && (
