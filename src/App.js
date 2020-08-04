@@ -23,7 +23,9 @@ function App() {
     <Container className='my-4'>
       <h1 className='mb-4 text-center'>Github Jobs</h1>
       <SearchForm params={params} onParamChange={handleParamChange} />
-      <JobsPagination page={page} setPage={setPage} hasNextPage={true} />
+      {!loading && (
+        <JobsPagination page={page} setPage={setPage} hasNextPage={true} />
+      )}
       <div className='d-flex justify-content-center'>
         {loading && (
           <Spinner className='text-center' animation='border' role='status'>
@@ -35,7 +37,13 @@ function App() {
       {jobs.map((job) => {
         return <Job key={job.id} job={job} />;
       })}
-      <JobsPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
+      {!loading && (
+        <JobsPagination
+          page={page}
+          setPage={setPage}
+          hasNextPage={hasNextPage}
+        />
+      )}
     </Container>
   );
 }
