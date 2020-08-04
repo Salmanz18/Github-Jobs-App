@@ -24,11 +24,13 @@ function App() {
       <h1 className='mb-4 text-center'>Github Jobs</h1>
       <SearchForm params={params} onParamChange={handleParamChange} />
       <JobsPagination page={page} setPage={setPage} hasNextPage={true} />
-      {loading && (
-        <Spinner className='text-center' animation='border' role='status'>
-          <span className='sr-only'>Loading...</span>
-        </Spinner>
-      )}
+      <div className='d-flex justify-content-center'>
+        {loading && (
+          <Spinner className='text-center' animation='border' role='status'>
+            <span className='sr-only'>Loading...</span>
+          </Spinner>
+        )}
+      </div>
       {error && <h1>Error. Try Refreshing!</h1>}
       {jobs.map((job) => {
         return <Job key={job.id} job={job} />;
